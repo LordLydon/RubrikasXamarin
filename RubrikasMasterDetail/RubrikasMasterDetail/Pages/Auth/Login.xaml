@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rubrikasMasterDetail:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rubrikasMasterDetail="clr-namespace:RubrikasMasterDetail"
+             x:Class="RubrikasMasterDetail.Login">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Crear Usuario" Clicked="OnSignUpButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <Label Text="Correo" />
+            <Entry x:Name="emailEntry" Placeholder="correo" />
+            <Label Text="Contraseña" />
+            <Entry x:Name="passwordEntry" IsPassword="true" />
+            <Button Text="Iniciar Sesión" Clicked="OnLoginButtonClicked" />
+            <Label x:Name="messageLabel" />
+        </StackLayout>
+    </ContentPage.Content>
+</rubrikasMasterDetail:ConnectedContentPage>
