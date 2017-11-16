@@ -13,7 +13,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ConnectedContentPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\Courses\CoursesPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Course\CourseDetailPage.xaml.cs">
+      <DependentUpon>CourseDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Course\CoursesPage.xaml.cs">
       <DependentUpon>CoursesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -36,7 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Course.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Evaluation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Student.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\Courses\NewCoursePage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Course\NewCoursePage.xaml.cs">
       <DependentUpon>NewCoursePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -44,8 +48,10 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\Annotations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CoursesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Course\CourseDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Course\CoursesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
@@ -78,20 +84,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Courses\CoursesPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Course\CoursesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Courses\NewCoursePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Course\NewCoursePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Pages\Courses\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\Menu\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\Auth\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Course\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Course\CourseDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace RubrikasMasterDetail
+namespace RubrikasMasterDetail.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuMaster : ContentPage

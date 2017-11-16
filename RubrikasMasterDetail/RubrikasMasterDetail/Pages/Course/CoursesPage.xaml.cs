@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RubrikasMasterDetail.Models;
 using RubrikasMasterDetail.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace RubrikasMasterDetail
+namespace RubrikasMasterDetail.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CoursesPage : ConnectedContentPage
@@ -25,7 +20,7 @@ namespace RubrikasMasterDetail
 
 		async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
-			if (!(args.SelectedItem is Course item))
+			if (!(args.SelectedItem is Models.Course item))
 				return;
 
 			await Navigation.PushAsync(new CourseDetailPage(new CourseDetailViewModel(item)));

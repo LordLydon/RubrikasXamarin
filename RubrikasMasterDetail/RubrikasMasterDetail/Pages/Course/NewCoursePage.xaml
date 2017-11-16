@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<rubrikasMasterDetail:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:rubrikasMasterDetail="clr-namespace:RubrikasMasterDetail"
-             x:Class="RubrikasMasterDetail.NewCoursePage">
+             xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+             x:Class="RubrikasMasterDetail.Pages.NewCoursePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
@@ -14,4 +14,4 @@
             <Entry Text="{Binding Item.NRC}" FontSize="Small" Keyboard="Numeric" />
         </StackLayout>
     </ContentPage.Content>
-</rubrikasMasterDetail:ConnectedContentPage>
+</pages:ConnectedContentPage>
