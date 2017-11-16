@@ -15,7 +15,7 @@ namespace RubrikasMasterDetail
 			CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
 
 			//MainPage = !Current.Properties.ContainsKey("auth") ? new NavigationPage(new Login()) : new NavigationPage(new MainPage());
-			MainPage = new NavigationPage(new Menu());
+			MainPage = new Menu();
 		}
 
 		void HandleConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

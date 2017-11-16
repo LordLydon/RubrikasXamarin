@@ -10,7 +10,7 @@ namespace RubrikasMasterDetail.Models
 
         private ObservableCollection<Evaluation> Evaluations { get; set; }
         private ObservableCollection<Student> Students { get; set; }
-
+        
         public string Name
         {
             get => name;

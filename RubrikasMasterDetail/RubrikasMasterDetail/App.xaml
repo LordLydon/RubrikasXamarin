@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="RubrikasMasterDetail.App">
 	<Application.Resources>
 		<ResourceDictionary>
 			<x:String x:Key="FirebaseApiKey">AIzaSyCaz_22Vii8aloenXvQGwS6VNwBkcssblw</x:String>
 			<x:String x:Key="FirebaseDbUrl">https://rubrika-14818.firebaseio.com/</x:String>
+			<x:String x:Key="AppName">Rubrika</x:String>
 
-			<Color x:Key="Primary">#2196F3</Color>
+				<Color x:Key="Primary">#2196F3</Color>
 			<Color x:Key="PrimaryDark">#1976D2</Color>
 			<Color x:Key="Accent">#96d1ff</Color>
 			<Color x:Key="LightBackgroundColor">#FAFAFA</Color>

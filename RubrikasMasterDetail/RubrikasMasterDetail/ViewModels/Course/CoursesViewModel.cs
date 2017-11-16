@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Firebase.Xamarin.Database.Query;
 using RubrikasMasterDetail.Models;
+using RubrikasMasterDetail.Pages;
 using Xamarin.Forms;
 
 namespace RubrikasMasterDetail.ViewModels
@@ -12,17 +13,18 @@ namespace RubrikasMasterDetail.ViewModels
     {
         public CoursesViewModel()
         {
-            Title = "Browse";
+            Title = "Cursos";
             Items = new ObservableCollection<Course>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewCoursePage, Course>(this, "AddItem", async (obj, item) =>
             {
-                var _item = item;
-                Items.Add(_item);
-                await firebase
+                var _item = await firebase
                     .Child("Course")
-                    .PostAsync(_item);
+                    .PostAsync(item);
+                item.Key = _item.Key;
+                Items.Add(item);
+                
             });
         }
 
@@ -44,8 +46,10 @@ namespace RubrikasMasterDetail.ViewModels
                     .OrderByKey()
                     .OnceAsync<Course>();
                 foreach (var item in items)
-                { 
-                    Items.Add(item.Object);
+                {
+                    var i = item.Object;
+                    i.Key = item.Key;
+                    Items.Add(i);
                 }
             }
             catch (Exception ex)

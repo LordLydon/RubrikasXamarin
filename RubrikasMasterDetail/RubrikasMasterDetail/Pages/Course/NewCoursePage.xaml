@@ -4,13 +4,13 @@
              xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
              x:Class="RubrikasMasterDetail.Pages.NewCoursePage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="GUARDAR" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
+            <Label Text="Nombre" FontSize="Medium" />
             <Entry Text="{Binding Item.Name}" FontSize="Small" />
-            <Label Text="Description" FontSize="Medium" />
+            <Label Text="NRC" FontSize="Medium" />
             <Entry Text="{Binding Item.NRC}" FontSize="Small" Keyboard="Numeric" />
         </StackLayout>
     </ContentPage.Content>

@@ -33,11 +33,7 @@ namespace RubrikasMasterDetail.Pages
             {
                 MenuItems = new ObservableCollection<MenuItem>(new[]
                 {
-                    new MenuItem { Id = 0, Title = "Page 1" },
-                    new MenuItem { Id = 1, Title = "Page 2" },
-                    new MenuItem { Id = 2, Title = "Page 3" },
-                    new MenuItem { Id = 3, Title = "Page 4" },
-                    new MenuItem { Id = 4, Title = "Page 5" },
+                    new MenuItem { Id = 0, Title = "Cursos", TargetType = typeof(CoursesPage)},
                 });
             }
             

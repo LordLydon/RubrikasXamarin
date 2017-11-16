@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace RubrikasMasterDetail.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CourseDetailPage : ContentPage
+	public partial class CourseDetailPage : TabbedPage
 	{
 		public CourseDetailPage ()
 		{
