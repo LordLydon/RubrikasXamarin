@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Plugin.Connectivity;
+using Plugin.Connectivity.Abstractions;
 using Xamarin.Forms;
 
 namespace RubrikasMasterDetail
@@ -13,10 +14,20 @@ namespace RubrikasMasterDetail
 		{
 			InitializeComponent();
 
-			MainPage = new RubrikasMasterDetail.MainPage();
+			//Verificar Conexión
+			CrossConnectivity.Current.ConnectivityChanged += HandleConnectivityChanged;
+
+			//MainPage = !Current.Properties.ContainsKey("auth") ? new NavigationPage(new Login()) : new NavigationPage(new MainPage());
+			MainPage = new NavigationPage(new Menu());
 		}
 
-		protected override void OnStart ()
+		void HandleConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+		{
+			MessagingCenter.Send(this, "ConnectivityChanged", e.IsConnected);
+		}
+	
+
+	protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
