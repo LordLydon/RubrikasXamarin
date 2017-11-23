@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+                            x:Class="RubrikasMasterDetail.Pages.NewCategoryPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="AddItem_Clicked" />
+        <ToolbarItem Text="GUARDAR" IsEnabled="{Binding CanSave}" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Nombre" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" Placeholder="Nombre de la Categoría" FontSize="Small" />
+            <Label Text="Peso" FontSize="Medium" />
+            <Entry Text="{Binding Item.Weight}" Placeholder="Peso de la Categoría" FontSize="Small" Keyboard="Numeric" />
+            <Label Text="{Binding CriteriaLabel}" FontSize="Medium"></Label>
+            <ListView x:Name="ItemsListView"
+                      ItemsSource="{Binding Criteria}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" />
+                                <Label Text="{Binding Weight}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:ConnectedContentPage>

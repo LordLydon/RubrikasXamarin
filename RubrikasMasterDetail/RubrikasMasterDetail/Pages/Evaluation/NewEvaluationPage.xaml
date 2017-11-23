@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+                            x:Class="RubrikasMasterDetail.Pages.NewEvaluationPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="GUARDAR" IsEnabled="{Binding CanSave}" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Nombre" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" Placeholder="Nombre de la Evaluación" FontSize="Small" />
+            <Label Text="Descrpción" FontSize="Medium" />
+            <Editor Text="{Binding Item.Description}" FontSize="Small" />
+            <Label Text="Rubrica" FontSize="Medium" />
+            <Picker x:Name="RubricPicker" Title="Selecciona una rubrica" 
+                    ItemsSource="{Binding Rubrics}"
+                    ItemDisplayBinding="{Binding Name}" />
+            <ActivityIndicator Color="Red" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        </StackLayout>
+    </ContentPage.Content>
+</pages:ConnectedContentPage>

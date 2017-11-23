@@ -9,9 +9,9 @@
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Nombre" FontSize="Medium" />
-            <Entry Text="{Binding Item.Name}" FontSize="Small" />
+            <Entry Text="{Binding Name}" Placeholder="Nombre del Curso" FontSize="Small" />
             <Label Text="NRC" FontSize="Medium" />
-            <Entry Text="{Binding Item.NRC}" FontSize="Small" Keyboard="Numeric" />
+            <Entry Text="{Binding NRC}" Placeholder="NRC del Curso" FontSize="Small" Keyboard="Numeric" />
         </StackLayout>
     </ContentPage.Content>
 </pages:ConnectedContentPage>

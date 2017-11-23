@@ -2,11 +2,14 @@
 
 namespace RubrikasMasterDetail.ViewModels
 {
-    public class CourseDetailViewModel
+    public class CourseDetailViewModel : BaseViewModel
     {
-        public CourseDetailViewModel(Course item)
+        public Course Course { get; set; }
+        
+        public CourseDetailViewModel(Course item = null)
         {
-            
+            Title = item?.Name; 
+            Course = item;
         }
     }
 }

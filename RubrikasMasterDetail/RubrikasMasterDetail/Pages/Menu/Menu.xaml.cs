@@ -18,6 +18,13 @@ namespace RubrikasMasterDetail.Pages
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
+        public Menu(bool connected = true)
+        {
+            InitializeComponent();
+            Detail = new NavigationPage(new CoursesPage(connected));
+            MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+        }
+
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (!(e.SelectedItem is MenuItem item))

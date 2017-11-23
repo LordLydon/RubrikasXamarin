@@ -8,32 +8,35 @@ namespace RubrikasMasterDetail.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewCoursePage : ConnectedContentPage
 	{
-		public Course Item { get; set; }
+		private Course Item { get; set; }
 
-        public NewCoursePage ()
+        public NewCoursePage (bool connected = true) : base(connected)
 		{
 			InitializeComponent ();
 
-			Item = new Course
-			{
-				Name = "Nombre del curso",
-				NRC = "NRC del curso."
-			};
-
-			BindingContext = this;
+			BindingContext = Item = new Course();
 		}
 
 		async void Save_Clicked(object sender, EventArgs e)
 		{
 			if (IsConnected)
 			{
-				MessagingCenter.Send(this, "AddItem", Item);
-				await Navigation.PopToRootAsync();
+				if (Course.IsValid(Item))
+				{
+					MessagingCenter.Send(this, "AddItem", Item);
+					await Navigation.PopToRootAsync();
+				}
+				else
+				{
+					await DisplayAlert("Error", "Todos los campos son requeridos!", "OK");
+				}
 			}
 			else
 			{
 				DisplayNotConnectedError();
 			}
 		}
-    }
+
+		protected override void SwitchConnectedFeatures(){}
+	}
 }

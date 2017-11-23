@@ -34,6 +34,7 @@ namespace RubrikasMasterDetail.Pages
                 MenuItems = new ObservableCollection<MenuItem>(new[]
                 {
                     new MenuItem { Id = 0, Title = "Cursos", TargetType = typeof(CoursesPage)},
+                    new MenuItem { Id = 1, Title = "Rubricas", TargetType = typeof(RubricsPage)}
                 });
             }
             

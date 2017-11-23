@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+             x:Class="RubrikasMasterDetail.Pages.NewCriterionPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="GUARDAR" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Nombre" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" Placeholder="Nombre del Elemento" FontSize="Small" />
+            <Label Text="Peso" FontSize="Medium" />
+            <Entry Text="{Binding Item.Weight}" Placeholder="Peso del Elemento" FontSize="Small" Keyboard="Numeric" />
+            <Label Text="Niveles" FontSize="Medium"></Label>
+            <ListView ItemsSource="{Binding Levels}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="Nombre" FontSize="Medium" />
+                                <Entry Text="{Binding Name}" Placeholder="Nombre del Nivel" FontSize="Small" />
+                                <Label Text="Calificación" FontSize="Medium" />
+                                <Entry Text="{Binding Score}" Placeholder="Calificación del Nivel" FontSize="Small" Keyboard="Numeric" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:ConnectedContentPage>

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using RubrikasMasterDetail.Models;
 using RubrikasMasterDetail.ViewModels;
 using Xamarin.Forms;
@@ -7,30 +11,30 @@ using Xamarin.Forms.Xaml;
 namespace RubrikasMasterDetail.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CoursesPage : ConnectedContentPage
+	public partial class RubricsPage : ConnectedContentPage
 	{
-		CoursesViewModel viewModel;
-		
-        public CoursesPage (bool connected = true) : base(connected)
-        {
-			InitializeComponent ();
-			BindingContext = viewModel = new CoursesViewModel();
-			SwitchConnectedFeatures();
-        }
+		RubricsViewModel viewModel;
 
-		public CoursesPage()
+		public RubricsPage(bool connected = true) : base(connected)
 		{
 			InitializeComponent();
-			BindingContext = viewModel = new CoursesViewModel();
+			BindingContext = viewModel = new RubricsViewModel();
+			SwitchConnectedFeatures();
+		}
+
+		public RubricsPage()
+		{
+			InitializeComponent();
+			BindingContext = viewModel = new RubricsViewModel();
 			SwitchConnectedFeatures();
 		}
 
 		private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
-			if (!(args.SelectedItem is Course item))
+			if (!(args.SelectedItem is Rubric item))
 				return;
 
-			await Navigation.PushAsync(new CourseDetailPage(new CourseDetailViewModel(item), IsConnected));
+			await Navigation.PushAsync(new RubricDetailPage(new RubricDetailViewModel(item)));
 
 			// Manually deselect item
 			ItemsListView.SelectedItem = null;
@@ -38,7 +42,7 @@ namespace RubrikasMasterDetail.Pages
 
 		private async void AddItem_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new NewCoursePage(IsConnected));
+			await Navigation.PushAsync(new NewRubricPage());
 		}
 
 		protected override void OnAppearing()
@@ -54,4 +58,5 @@ namespace RubrikasMasterDetail.Pages
 			ItemsListView.IsPullToRefreshEnabled = IsConnected;
 		}
 	}
+	
 }

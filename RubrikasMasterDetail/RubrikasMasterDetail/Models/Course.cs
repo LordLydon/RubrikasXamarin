@@ -8,9 +8,6 @@ namespace RubrikasMasterDetail.Models
         private string name;
         private string nrc;
 
-        private ObservableCollection<Evaluation> Evaluations { get; set; }
-        private ObservableCollection<Student> Students { get; set; }
-        
         public string Name
         {
             get => name;
@@ -25,9 +22,15 @@ namespace RubrikasMasterDetail.Models
             get => nrc;
             set
             {
-                if (!string.IsNullOrWhiteSpace(value) && value.Length == 4 && Regex.IsMatch(value, "^\\d{4}$"))
+                if (!string.IsNullOrWhiteSpace(value))// && value.Length == 4 && Regex.IsMatch(value, "^\\d{4}$"))
                     SetProperty(ref nrc, value);
             }
+        }
+
+        public static bool IsValid(Course item)
+        {
+            return !string.IsNullOrWhiteSpace(item.Name) && 
+                   !string.IsNullOrWhiteSpace(item.NRC);
         }
     }
 }

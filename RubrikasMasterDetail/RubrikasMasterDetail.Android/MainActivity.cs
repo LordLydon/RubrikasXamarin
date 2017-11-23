@@ -6,7 +6,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace RubrikasMasterDetail.Droid
 {
-	[Activity (Label = "RubrikasMasterDetail", Icon = "@drawable/icon", Theme="@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "Rubrikas", Icon = "@drawable/icon", Theme="@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : FormsAppCompatActivity
 	{
 		protected override void OnCreate (Bundle bundle)

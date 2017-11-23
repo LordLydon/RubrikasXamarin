@@ -6,11 +6,4 @@
   <MasterDetailPage.Master>
     <pages:MenuMaster x:Name="MasterPage" />
   </MasterDetailPage.Master>
-  <MasterDetailPage.Detail>
-    <NavigationPage>
-      <x:Arguments>
-        <pages:CoursesPage />
-      </x:Arguments>
-    </NavigationPage>
-  </MasterDetailPage.Detail>
 </MasterDetailPage>

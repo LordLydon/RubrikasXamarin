@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Reactive.Linq;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
 
 namespace RubrikasMasterDetail.Models
 {
-    public class Evaluation : BaseModel
+    public class Rubric : BaseModel
     {
-        private string description;
         private string name;
-        private string rubricId;
+        private string description;
+
+        public ObservableCollection<Category> Categories { get; set; } = new ObservableCollection<Category>();
 
         public string Name
         {
@@ -26,21 +30,12 @@ namespace RubrikasMasterDetail.Models
                 if (!string.IsNullOrWhiteSpace(value)) SetProperty(ref description, value);
             }
         }
-
-        public string RubricId
-        {
-            get => rubricId;
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value)) SetProperty(ref rubricId, value);
-            }
-        }
-
-        public static bool IsValid(Evaluation item)
+        public static bool IsValid(Rubric item)
         {
             return !string.IsNullOrWhiteSpace(item.Name) &&
                    !string.IsNullOrWhiteSpace(item.Description) &&
-                   !string.IsNullOrWhiteSpace(item.RubricId);
+                   item.Categories.Aggregate(0f, (current, category) => current + category.Weight) == 100 &&
+                   item.Categories.Aggregate(true, (current, category) => current & Category.IsValid(category));
         }
     }
 }
