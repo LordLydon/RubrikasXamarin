@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RubrikasMasterDetail.Pages.RubricDetailPage"
+             x:Class="RubrikasMasterDetail.Pages.CategoryDetailPage"
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Descripción:" />
-            <Label Text="{Binding Item.Description}" />
-            <Label Text="Categorias" FontSize="Medium"></Label>
+            <Label Text="Elementos" FontSize="Medium"></Label>
             <ListView x:Name="ItemsListView"
-                      ItemsSource="{Binding Item.Categories}"
+                      ItemsSource="{Binding Item.Criteria}"
                       VerticalOptions="FillAndExpand"
                       HasUnevenRows="true"
                       CachingStrategy="RecycleElement"

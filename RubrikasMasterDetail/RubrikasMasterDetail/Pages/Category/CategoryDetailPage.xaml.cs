@@ -11,11 +11,11 @@ using RubrikasMasterDetail.Models;
 namespace RubrikasMasterDetail.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RubricDetailPage : ContentPage
+	public partial class CategoryDetailPage : ContentPage
 	{
-		private RubricDetailViewModel viewModel;
+		private CategoryDetailViewModel viewModel;
 
-		public RubricDetailPage(RubricDetailViewModel item)
+		public CategoryDetailPage(CategoryDetailViewModel item)
 		{
 			InitializeComponent();
 			BindingContext = viewModel = item;
@@ -23,10 +23,10 @@ namespace RubrikasMasterDetail.Pages
 
 		private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
-			if (!(args.SelectedItem is Category item))
+			if (!(args.SelectedItem is Criterion item))
 				return;
 
-			await Navigation.PushAsync(new CategoryDetailPage(new CategoryDetailViewModel(item)));
+			await Navigation.PushAsync(new CriterionDetailPage(new CriterionDetailViewModel(item)));
 
 			// Manually deselect item
 			ItemsListView.SelectedItem = null;

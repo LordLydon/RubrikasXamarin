@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RubrikasMasterDetail.Pages.RubricDetailPage"
+             x:Class="RubrikasMasterDetail.Pages.CriterionDetailPage"
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Descripción:" />
-            <Label Text="{Binding Item.Description}" />
-            <Label Text="Categorias" FontSize="Medium"></Label>
+            <Label Text="Niveles" FontSize="Medium"></Label>
             <ListView x:Name="ItemsListView"
-                      ItemsSource="{Binding Item.Categories}"
+                      ItemsSource="{Binding Item.Levels}"
                       VerticalOptions="FillAndExpand"
                       HasUnevenRows="true"
-                      CachingStrategy="RecycleElement"
-                      ItemSelected="OnItemSelected">
+                      CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -29,11 +26,11 @@
                                            FontSize="16" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Peso: "
+                                    <Label Text="Calificación: "
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />
-                                    <Label Text="{Binding Weight}"
+                                    <Label Text="{Binding Score}"
                                            LineBreakMode="NoWrap"
                                            Style="{DynamicResource ListItemDetailTextStyle}"
                                            FontSize="13" />

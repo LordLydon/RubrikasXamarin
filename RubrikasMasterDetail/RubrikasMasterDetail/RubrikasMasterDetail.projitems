@@ -20,6 +20,10 @@
       <SubType>Code</SubType>
       <DependentUpon>NewCategoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Category\CategoryDetailPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CategoryDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ConnectedContentPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Course\CourseDetailPage.xaml.cs">
       <DependentUpon>CourseDetailPage.xaml</DependentUpon>
@@ -28,6 +32,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Course\CoursesPage.xaml.cs">
       <DependentUpon>CoursesPage.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Criterion\CriterionDetailPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CriterionDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Criterion\NewCriterionPage.xaml.cs">
       <SubType>Code</SubType>
@@ -91,8 +99,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Properties\Annotations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Category\NewCategoryViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Category\CategoryDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Course\CourseDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Course\CoursesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Criterion\CriterionDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Criterion\NewCriterionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\EvaluationDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\EvaluationsViewModel.cs" />
@@ -109,6 +119,14 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Category\NewCategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Category\CategoryDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Criterion\CriterionDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
