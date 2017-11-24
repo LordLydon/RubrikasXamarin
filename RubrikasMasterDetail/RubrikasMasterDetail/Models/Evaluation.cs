@@ -33,7 +33,7 @@ namespace RubrikasMasterDetail.Models
             get => rubric;
             set
             {
-                if (rubric != null && Rubric.IsValid(rubric)) SetProperty(ref rubric, value);
+                if (value != null && Rubric.IsValid(value)) SetProperty(ref rubric, value);
             }
         }
 
