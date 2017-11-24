@@ -40,7 +40,7 @@ namespace RubrikasMasterDetail.ViewModels
                 new Level
                 {
                     Name = "Nivel 4",
-                    Score = 5
+                    Score = 5f
                 }
             };
         }

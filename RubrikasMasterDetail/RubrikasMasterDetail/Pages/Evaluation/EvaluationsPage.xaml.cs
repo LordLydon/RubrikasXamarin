@@ -28,11 +28,11 @@ namespace RubrikasMasterDetail.Pages
 
 		private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
 		{
-			if (!(args.SelectedItem is Evaluation item))
+			if (!(args.SelectedItem is Models.Evaluation item))
 				return;
 
-			await Navigation.PushAsync(new EvaluationDetailPage(new EvaluationDetailViewModel(item)));
-
+			await Navigation.PushAsync(new EvaluationDetailPage(new EvaluationDetailViewModel(course, item), IsConnected));
+			
 			// Manually deselect item
 			ItemsListView.SelectedItem = null;
 		}

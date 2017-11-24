@@ -24,9 +24,9 @@ namespace RubrikasMasterDetail.ViewModels
             MessagingCenter.Subscribe<NewStudentPage, Student>(this, "AddItem", async (obj, item) =>
             {
                 var _item = await firebase
-                    .Child("Courses")
+                    .Child("Course")
                     .Child(Course.Key)
-                    .Child("Students")
+                    .Child("Student")
                     .PostAsync(item);
                 item.Key = _item.Key;
                 Items.Add(item);
@@ -48,9 +48,9 @@ namespace RubrikasMasterDetail.ViewModels
             {
                 Items.Clear();
                 var items = await firebase
-                    .Child("Courses")
+                    .Child("Course")
                     .Child(Course.Key)
-                    .Child("Students")
+                    .Child("Student")
                     .OrderByKey()
                     .OnceAsync<Student>();
                 

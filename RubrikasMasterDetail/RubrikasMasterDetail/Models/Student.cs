@@ -1,4 +1,6 @@
-﻿namespace RubrikasMasterDetail.Models
+﻿using System.Collections.ObjectModel;
+
+namespace RubrikasMasterDetail.Models
 {
     public class Student : BaseModel
     {

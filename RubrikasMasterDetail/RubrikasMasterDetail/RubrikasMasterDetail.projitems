@@ -13,9 +13,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Grading\CatGrade.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Criterion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Grading\CritGrade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Grading\Grade.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Rubric.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Category\GradeCategory.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>GradeCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Category\NewCategoryPage.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>NewCategoryPage.xaml</DependentUpon>
@@ -47,6 +54,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Evaluation\EvaluationsPage.xaml.cs">
       <DependentUpon>EvaluationsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Evaluation\GradeEvaluation.xaml.cs">
+      <DependentUpon>GradeEvaluation.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Menu\Menu.xaml.cs">
@@ -98,6 +109,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Properties\Annotations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Category\GradeCategoryViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Category\NewCategoryViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Category\CategoryDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Course\CourseDetailViewModel.cs" />
@@ -106,6 +118,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Criterion\NewCriterionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\EvaluationDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\EvaluationsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\GradeEvaluationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Evaluation\NewEvaluationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Rubric\RubricDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Rubric\RubricsViewModel.cs" />
@@ -115,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Category\GradeCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -160,7 +177,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Pages\Evaluation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Models\Grading\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\Menu\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\Rubric\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\Student\" />
@@ -222,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Rubric\NewRubricPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Evaluation\GradeEvaluation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

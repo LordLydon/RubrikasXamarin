@@ -42,7 +42,7 @@ namespace RubrikasMasterDetail.Pages
 				}
 				else
 				{
-					await DisplayAlert("Error", "Todos los campos son requeridos!", "OK");
+					await DisplayAlert("Error", "Todos los campos son requeridos!\nY no olvides que las calificaciones son de 0 a 5.", "OK");
 				}
 			}
 			else

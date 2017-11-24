@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 
 namespace RubrikasMasterDetail.Models
@@ -7,7 +8,7 @@ namespace RubrikasMasterDetail.Models
     {
         private string description;
         private string name;
-        private string rubricId;
+        private Rubric rubric;
 
         public string Name
         {
@@ -27,20 +28,23 @@ namespace RubrikasMasterDetail.Models
             }
         }
 
-        public string RubricId
+        public Rubric Rubric
         {
-            get => rubricId;
+            get => rubric;
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) SetProperty(ref rubricId, value);
+                if (rubric != null && Rubric.IsValid(rubric)) SetProperty(ref rubric, value);
             }
         }
+
+        public ObservableCollection<Grade> Grades { get; set; } = new ObservableCollection<Grade>();
 
         public static bool IsValid(Evaluation item)
         {
             return !string.IsNullOrWhiteSpace(item.Name) &&
                    !string.IsNullOrWhiteSpace(item.Description) &&
-                   !string.IsNullOrWhiteSpace(item.RubricId);
+                   item.Rubric != null &&
+                   Rubric.IsValid(item.Rubric);
         }
     }
 }

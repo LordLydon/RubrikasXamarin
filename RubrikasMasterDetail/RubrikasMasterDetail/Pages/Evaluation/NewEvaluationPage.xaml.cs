@@ -29,8 +29,8 @@ namespace RubrikasMasterDetail.Pages
 			{
 				if (RubricPicker.SelectedItem is Rubric rubric)
 				{
-					viewModel.Item.RubricId = rubric.Key;
-					if (Evaluation.IsValid(viewModel.Item))
+					viewModel.Item.Rubric = rubric;
+					if (Models.Evaluation.IsValid(viewModel.Item))
 					{
 						MessagingCenter.Send(this, "AddItem", viewModel.Item);
 						await Navigation.PopAsync();
