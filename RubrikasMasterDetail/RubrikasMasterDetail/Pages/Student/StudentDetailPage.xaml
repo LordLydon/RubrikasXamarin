@@ -5,8 +5,8 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+            <Label Text="Hola estudiante!"
+                VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
