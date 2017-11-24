@@ -26,7 +26,7 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="70"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Student.Name}"
                                        LineBreakMode="NoWrap"
@@ -34,7 +34,7 @@
                                        FontSize="16" 
                                        Grid.Row="0"
                                        Grid.Column="0"/>
-                                <Label Text="{Binding Grade.Mark}"
+                                <Label Text="{Binding Grade.Mark, StringFormat='Nota: {0:F}'}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle}"
                                        FontSize="16"

@@ -18,11 +18,12 @@ namespace RubrikasMasterDetail.ViewModels
         public GradedStudent GradedStudent { get; set; }
         public GradedCategory GradedCategory { get; set; }
         
-        public GradeCategoryViewModel(Course course, Evaluation evaluation, GradedStudent gradedStudent)
+        public GradeCategoryViewModel(Course course, Evaluation evaluation, GradedStudent gradedStudent, GradedCategory gradedCategory)
         {
             Course = course;
             Evaluation = evaluation;
             GradedStudent = gradedStudent;
+            GradedCategory = gradedCategory;
             Title = $"Categoria {GradedCategory.Category.Name} - Estudiante {GradedStudent.Student.Name}" ;
             Items = new ObservableCollection<GradedCriterion>();
 
@@ -54,9 +55,8 @@ namespace RubrikasMasterDetail.ViewModels
                        mark = new CritGrade
                         {
                             CritKey = i,
-                            Mark = 0f,
-                            Level = "No calificado"
-                        };
+                            Level = criteria[i].Levels[0]
+                       };
                         GradedCategory.Grade.CritGrades.Add(mark);
                     }
                     
@@ -73,11 +73,16 @@ namespace RubrikasMasterDetail.ViewModels
             }
         }
 
-
-        public struct GradedCriterion
+        public void UpdateTotal()
         {
-            public Criterion Criterion { get; set; }
-            public CritGrade Grade { get; set; }
+            GradedCategory.Grade.Mark = Items.Aggregate(0f, (current, item) => current + (item.Grade?.Level?.Score ?? 0) * item.Criterion.Weight / 100);
         }
+
+    }
+
+    public struct GradedCriterion
+    {
+        public Criterion Criterion { get; set; }
+        public CritGrade Grade { get; set; }
     }
 }

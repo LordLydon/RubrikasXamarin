@@ -7,8 +7,7 @@ namespace RubrikasMasterDetail.Models
     public class CritGrade : BaseModel
     {
         private int critKey;
-        private string level;
-        private float mark;
+        private Level level;
 
         public int CritKey
         {
@@ -16,26 +15,19 @@ namespace RubrikasMasterDetail.Models
             set => SetProperty(ref critKey, value);
         }
 
-        public string Level
+        public Level Level
         {
             get => level;
             set
             {
-                if (!string.IsNullOrWhiteSpace(value)) SetProperty(ref level, value);
+                if (value != null && Level.IsValid(value)) SetProperty(ref level, value);
             }
-        }
-
-        public float Mark
-        {
-            get => mark;
-            set => SetProperty(ref mark, value);
         }
 
         public static bool IsValid(CritGrade item)
         {
-            return !string.IsNullOrWhiteSpace(item.Level) &&
-                   item.Mark >= 0 &&
-                   item.Mark <= 5 &&
+            return item.Level != null &&
+                   Level.IsValid(item.Level) &&
                    item.CritKey >= 0;
         }
     }

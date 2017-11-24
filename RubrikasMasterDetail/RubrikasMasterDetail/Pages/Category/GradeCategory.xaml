@@ -1,12 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RubrikasMasterDetail.Pages.GradeCategory">
+             xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+             x:Class="RubrikasMasterDetail.Pages.GradeCategory"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <Label Text="{Binding GradedCategory.Category.Name, StringFormat='Categoría: {0}'}"
+                   Style="{DynamicResource ListItemTextStyle}"></Label>
+            <Label Text="{Binding GradedStudent.Student.Name, StringFormat='Estudiante: {0}'}"
+                   Style="{DynamicResource ListItemTextStyle}"></Label>
+            <Label Text="{Binding GradedCategory.Grade.Mark, StringFormat='Promedio Categoría {0:F}'}"
+                   Style="{DynamicResource ListItemTextStyle}"></Label>
+            <ListView x:Name="ItemsListView"
+                      ItemsSource="{Binding Items}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Criterion.Name, StringFormat='Elemento: {0}'}"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemTextStyle}"
+                                           FontSize="16" />
+                                    <Label Text="("></Label>
+                                    <Label Text="{Binding Criterion.Weight, StringFormat='{0:F}%'}"
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="16" />
+                                    <Label Text="%"></Label>
+                                    <Label Text=")"></Label>
+                                </StackLayout>
+                                
+                                <Label Text="{Binding Grade.Level.Score, StringFormat='Nota: {0:F}'}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                
+                                <Picker x:Name="LevelPicker" Title="Selecciona un nivel"
+                                        ItemsSource="{Binding Criterion.Levels}"
+                                        ItemDisplayBinding="{Binding Name}"
+                                        SelectedItem="{Binding Grade.Level}"
+                                        SelectedIndexChanged="LevelPicker_OnSelectedIndexChanged" />
+                                <ActivityIndicator Color="Red" IsRunning="{Binding IsBusy}"
+                                                   IsVisible="{Binding IsBusy}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</pages:ConnectedContentPage>

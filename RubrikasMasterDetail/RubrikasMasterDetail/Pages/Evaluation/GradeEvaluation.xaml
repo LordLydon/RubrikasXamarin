@@ -1,12 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ConnectedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RubrikasMasterDetail.Pages.GradeEvaluation">
+             xmlns:pages="clr-namespace:RubrikasMasterDetail.Pages"
+             x:Class="RubrikasMasterDetail.Pages.GradeEvaluation"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="GUARDAR" IsEnabled="{Binding CanSave}" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Evaluation.Name, StringFormat='Evaluación: {0}'}"
+                   Style="{DynamicResource ListItemTextStyle}">
+            </Label>
+            <Label Text="{Binding GradedStudent.Student.Name, StringFormat='Estudiante: {0}'}"
+                   Style="{DynamicResource ListItemTextStyle}">
+            </Label>
+            <Label Text="{Binding GradedStudent.Grade.Mark, StringFormat='Nota Ponderada {0:F}'}"
+                   Style="{DynamicResource ListItemTextStyle}">
+            </Label>
+            <ListView x:Name="ItemsListView"
+                      ItemsSource="{Binding Items}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="70"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Category.Name, StringFormat='Categoria: {0}'}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" 
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <Label Text="{Binding Grade.Mark, StringFormat='Nota: {0:F}'}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"
+                                       Grid.Row="0"
+                                       Grid.Column="1" />
+                                <Label Text="{Binding Category.Weight, StringFormat='{0:F}%'}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</pages:ConnectedContentPage>

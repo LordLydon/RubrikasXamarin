@@ -23,7 +23,7 @@ namespace RubrikasMasterDetail.ViewModels
             Items = new ObservableCollection<GradedStudent>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             
-            MessagingCenter.Subscribe<GradeEvaluation, GradedStudent>(this, "AddItem", async (obj, structure) =>
+            MessagingCenter.Subscribe<GradeEvaluation, Grade>(this, "AddItem", async (obj, structure) =>
             {
                 //!!Verificar que no se escriban varias veces!!
                 

@@ -76,6 +76,11 @@ namespace RubrikasMasterDetail.ViewModels
                 IsBusy = false;
             }
         }
+
+        public void UpdateTotal()
+        {
+            GradedStudent.Grade.Mark = Items.Aggregate(0f, (current, item) => current + item.Grade.Mark * item.Category.Weight / 100);
+        }
     }
 
     public struct GradedCategory
